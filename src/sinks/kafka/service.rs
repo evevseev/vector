@@ -163,7 +163,7 @@ impl Service<KafkaRequest> for KafkaService {
                     // be retried
                     Err((
                         KafkaError::MessageProduction(
-                            RDKafkaErrorCode::QueueFull | RDKafkaErrorCode::PolicyViolation,
+                            RDKafkaErrorCode::QueueFull | RDKafkaErrorCode::PolicyViolation | RDKafkaErrorCode::OperationTimedOut,
                         ),
                         original_record,
                     )) => {
